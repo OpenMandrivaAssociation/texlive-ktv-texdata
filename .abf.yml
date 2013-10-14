@@ -1,4 +1,4 @@
 sources:
-  "ktv-texdata.doc.tar.xz:"	4ac877fdfe8c27a2b770e503f4e0de8016ddc277
-  "ktv-texdata.source.tar.xz:"	96fff12bbdac4237d691d2b6f0ed6dd4ef137739
-  "ktv-texdata.tar.xz:"	5606da2b564eec6c4de69f4fab527d83a91fee97
+  ktv-texdata.doc.tar.xz: 4ac877fdfe8c27a2b770e503f4e0de8016ddc277
+  ktv-texdata.source.tar.xz: 96fff12bbdac4237d691d2b6f0ed6dd4ef137739
+  ktv-texdata.tar.xz: 5606da2b564eec6c4de69f4fab527d83a91fee97
