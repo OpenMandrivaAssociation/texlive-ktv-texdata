@@ -6,7 +6,7 @@
 # catalog-version 05.34
 Name:		texlive-ktv-texdata
 Version:	05.34
-Release:	9
+Release:	10
 Summary:	Extract subsets of documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ktv-texdata
