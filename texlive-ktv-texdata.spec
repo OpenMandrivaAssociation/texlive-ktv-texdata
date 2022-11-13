@@ -1,19 +1,13 @@
-# revision 27369
-# category Package
-# catalog-ctan /macros/latex/contrib/ktv-texdata
-# catalog-date 2012-04-26 12:50:58 +0200
-# catalog-license gpl
-# catalog-version 05.34
 Name:		texlive-ktv-texdata
-Version:	05.34
-Release:	11
+Version:	27369
+Release:	1
 Summary:	Extract subsets of documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ktv-texdata
 License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ While the package was designed for teachers constructing tables
 of exercises, it plainly has more general application.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -51,7 +45,8 @@ of exercises, it plainly has more general application.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
