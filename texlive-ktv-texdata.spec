@@ -1,55 +1,25 @@
-Name:		texlive-ktv-texdata
-Version:	27369
-Release:	2
+%global tl_name ktv-texdata
+%global tl_revision 27369
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	05.34
+Release:	%{tl_revision}.1
 Summary:	Extract subsets of documents
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ktv-texdata
-License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.source.r%{version}.tar.xz
+License:	gpl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ktv-texdata.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
 The package defines an exercice environment which numbers every
-exercise, and a command \get to extract a collection whose
-argument is a comma-separated set of exercise index numbers.
-While the package was designed for teachers constructing tables
-of exercises, it plainly has more general application.
+exercise, and a command \get to extract a collection whose argument is a
+comma-separated set of exercise index numbers. While the package was
+designed for teachers constructing tables of exercises, it plainly has
+more general application.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/ktv-texdata/ktv-buildnum.sty
-%{_texmfdistdir}/tex/latex/ktv-texdata/ktv-texdata.sty
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/README
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/README.txt.doc
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/ktv-data.tex
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/ktv-test.KTVhint
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/ktv-test.tex
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/ktv-texdata.ktvnum
-%doc %{_texmfdistdir}/doc/latex/ktv-texdata/ktv-texdata.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/ktv-texdata/ktv-texdata.dtx
-%doc %{_texmfdistdir}/source/latex/ktv-texdata/ktv-texdata.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
